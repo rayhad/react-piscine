@@ -2,11 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Header from './components/header'
+import CarnetdeNote from './pages/CarnetdeNote'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <Header/>
+    <Routes>
+      <Route exact path="/" component={App}/>
+      <Route path="/CarnetdeNote" component={CarnetdeNote}/>
+    </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
