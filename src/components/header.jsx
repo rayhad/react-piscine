@@ -2,8 +2,9 @@
 import React from 'react'
 import {Navbar, Nav, Container} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import '../pages/CarnetdeNote'
 
-const header = () => {
+export default function header(){
     return(
         <Navbar bg="light" expand="lg">
         <Container>
@@ -16,7 +17,7 @@ const header = () => {
               <LinkContainer to="/">
               <Nav.Link href="/">Accueil</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/CarnetdeNote">
+              <LinkContainer to="./CarnetdeNote">
               <Nav.Link>Carnet de note</Nav.Link>
               </LinkContainer>
             </Nav>
@@ -25,5 +26,3 @@ const header = () => {
       </Navbar>
     )
 }
-
-export default header
