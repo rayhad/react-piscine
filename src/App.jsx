@@ -16,10 +16,6 @@ export default function App(){
         <Button as={Link} to={'../Statistiques'} className='buttonAccueil'><p>Statistiques</p></Button>
         </div>
       </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> f0ec76b13752a713b162b5fbc3f542521e6bc31a
     </div>
   )
 }
