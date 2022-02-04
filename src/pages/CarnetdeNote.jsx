@@ -5,6 +5,6 @@ import { useState } from 'react'
 
 export default function CarnetdeNote(){
     return(
-        <h2>test</h2>
+        <h2>Carnet</h2>
     )
 }

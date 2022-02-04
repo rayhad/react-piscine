@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
 import CarnetdeNote from './pages/CarnetdeNote';
+document.body.style.backgroundColor = 'white'
 
 export default function App(){
   return(

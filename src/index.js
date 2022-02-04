@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Header from './components/header.jsx'
 import CarnetdeNote from './pages/CarnetdeNote'
 import reportWebVitals from './reportWebVitals';
+import Statistiques from './pages/Statistiques';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App/>}/>
       <Route path="/CarnetdeNote" element={<CarnetdeNote/>}/>
+      <Route path="/Statistiques" element={<Statistiques />}/>
     </Routes>
     </Router>
     </main>
