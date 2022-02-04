@@ -2,6 +2,7 @@
 import React from 'react'
 import {Navbar, Nav, Container} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { NavLink } from 'react-router-dom'
 import '../pages/CarnetdeNote'
 
 export default function header(){
@@ -22,6 +23,9 @@ export default function header(){
               </LinkContainer>
               <LinkContainer to="./Statistiques">
               <Nav.Link>Statistiques</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="./CreationNote">
+                <Nav.Link>Creation de Note</Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>

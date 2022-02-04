@@ -1,0 +1,54 @@
+.cardContainer {
+    display:flex; 
+    flex-direction:row;
+    background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    width: 95%;
+    height: 80vh;
+
+}
+
+.cardCreation{
+    width: 60vw;
+    height:45vh;
+    margin-top: 20vh;
+    margin-left: 5vw;
+}
+
+.cardButton{
+    height: 35vh;
+    width: 25vw;
+    margin-top: 25vh;
+    margin-left: 5vh;
+}
+
+.btnCreation1{
+    margin-top: 2.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 10vh;
+    width: 40vh;
+}
+
+.btnEnregistrer-annuler{
+    display: inline;
+}
+
+.Enregistrer-annuler{
+    width: 45%;
+    margin-left: 3%;
+}
+
+#entreeNote{
+    height: 20vh;
+    width: 96%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#creationTitle{
+    margin-top: 2.5vh;
+    text-align: center;
+}

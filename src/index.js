@@ -8,6 +8,7 @@ import Header from './components/header.jsx';
 import CarnetdeNote from './pages/CarnetdeNote';
 import reportWebVitals from './reportWebVitals';
 import Statistiques from './pages/Statistiques';
+import CreationNote from './pages/CreationNote';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path="/" element={<App/>}/>
       <Route path="/CarnetdeNote" element={<CarnetdeNote/>}/>
       <Route path="/Statistiques" element={<Statistiques />}/>
+      <Route path="/CreationNote" element={<CreationNote />}/>
     </Routes>
     </Router>
     </main>
