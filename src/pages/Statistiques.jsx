@@ -8,8 +8,6 @@ export default function Statistiques(){
     return(
         <div>
 
-            
-
             <div className='arriere'>
                 
             <Card className='card-stat'>
@@ -22,9 +20,10 @@ export default function Statistiques(){
                 <Card.Body className='card-text'>Nombres de carnet de notes par catégorie :</Card.Body>
             </Card>
 
-            <Button className='button' variant="light">Precedent</Button>
-
-            <h2 className='titre'>Statistiques</h2>
+            <div className='arriere2'>
+                <h2 className='titre'>Statistiques</h2>
+                <Button as={Link} to={'../'} className='buttonStatistique' variant="light">Precedent</Button>
+            </div>
 
             </div>
 
