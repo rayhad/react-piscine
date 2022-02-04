@@ -4,7 +4,7 @@
     );
     width: 95vw;
     height: 75vh;
-    margin-left: 40px;
+    margin-left: 30px;
     border-radius: 1%;
 }
 
@@ -16,6 +16,12 @@
     display: flex;
     transform : translate(30px, 9em);
     margin-bottom: 40px;
+}
+
+.button{
+    width: 15%;
+    transform: translate(800px, -1em);
 
 }
+
 
