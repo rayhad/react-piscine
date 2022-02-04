@@ -6,7 +6,7 @@ import '../pages/CarnetdeNote'
 
 export default function header(){
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" variant='dark'>
         <Container>
           <LinkContainer to ="/">
           <Navbar.Brand href="#home"> React-Piscine ! </Navbar.Brand>
