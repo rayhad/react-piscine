@@ -9,6 +9,7 @@ import CarnetdeNote from './pages/CarnetdeNote';
 import reportWebVitals from './reportWebVitals';
 import Statistiques from './pages/Statistiques';
 import CreationNote from './pages/CreationNote';
+import ListeCarnetNotes from './pages/ListeCarnetNotes';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,9 +19,10 @@ ReactDOM.render(
 
     <Routes>
       <Route path="/" element={<App/>}/>
-      <Route path="/CarnetdeNote" element={<CarnetdeNote/>}/>
+      <Route path="/CarnetdeNote" element={<CarnetdeNote />}/>
       <Route path="/Statistiques" element={<Statistiques />}/>
       <Route path="/CreationNote" element={<CreationNote />}/>
+      <Route path="/ListeCarnetNotes" element={<ListeCarnetNotes />}/>
     </Routes>
     </Router>
     </main>

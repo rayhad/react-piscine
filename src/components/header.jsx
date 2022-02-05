@@ -27,6 +27,9 @@ export default function header(){
               <LinkContainer to="./CreationNote">
                 <Nav.Link>Creation de Note</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="./ListeCarnetNotes">
+                <Nav.Link>Listes des carnets de notes</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
