@@ -8,9 +8,11 @@ export default function CreationNote() {
         <div>
             <div className='cardContainer'>
                 <Card className='cardButton'>
-                    <Card.Title id="creationTitle">Création d'une note</Card.Title>
-                    <Button className="btnCreation1">Prévisualiser</Button>
-                    <Button className="btnCreation1">Précédent</Button>
+                    <Card.Body>
+                        <Card.Title id="creationTitle">Création d'une note</Card.Title>
+                        <Button className="btnCreation1">Prévisualiser</Button>
+                        <Button className="btnCreation1">Précédent</Button>
+                    </Card.Body>
                 </Card>
 
                 <Card className='cardCreation' >

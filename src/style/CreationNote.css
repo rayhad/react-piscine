@@ -7,6 +7,7 @@
     margin-top: 5vh;
     width: 95%;
     height: 80vh;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -15,6 +16,7 @@
     height:45vh;
     margin-top: 20vh;
     margin-left: 5vw;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .cardButton{
@@ -22,14 +24,17 @@
     width: 25vw;
     margin-top: 25vh;
     margin-left: 5vh;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .btnCreation1{
-    margin-top: 2.5vh;
+    margin-top: 2vh;
     margin-left: auto;
     margin-right: auto;
-    height: 10vh;
-    width: 40vh;
+    height: 30%;
+    width: 100%;
+    font-size: 1em;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .btnEnregistrer-annuler{
@@ -39,6 +44,7 @@
 .Enregistrer-annuler{
     width: 45%;
     margin-left: 3%;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 #entreeNote{
