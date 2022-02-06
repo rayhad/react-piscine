@@ -38,11 +38,7 @@ export default function CreationNote() {
                     <Card.Body>
                         <Card.Title id="creationTitle">Création d'une note</Card.Title>
                         <Button className="btnCreation1">Prévisualiser</Button>
-<<<<<<< HEAD
                         <Button as={Link} to={'../CarnetdeNote'} className='btnCreation1'>Precedent</Button>
-=======
-                        <Button as={Link} to={"../CarnetdeNote"} className="btnCreation1" >Précédent</Button>
->>>>>>> bcf197a5a2f74187e94d484338045acc567b9314
                     </Card.Body>
                 </Card>
 

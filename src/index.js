@@ -9,13 +9,10 @@ import CarnetdeNote from './pages/CarnetdeNote';
 import reportWebVitals from './reportWebVitals';
 import Statistiques from './pages/Statistiques';
 import CreationNote from './pages/CreationNote';
-<<<<<<< HEAD
 import ListeCarnetNotes from './pages/ListeCarnetNotes';
 
-=======
 import Liste from './pages/Liste'
 import ModifNote from './pages/ModifNote'
->>>>>>> bcf197a5a2f74187e94d484338045acc567b9314
 ReactDOM.render(
   <React.StrictMode>
     <main>
@@ -27,12 +24,9 @@ ReactDOM.render(
       <Route path="/CarnetdeNote" element={<CarnetdeNote />}/>
       <Route path="/Statistiques" element={<Statistiques />}/>
       <Route path="/CreationNote" element={<CreationNote />}/>
-<<<<<<< HEAD
       <Route path="/ListeCarnetNotes" element={<ListeCarnetNotes />}/>
-=======
       <Route path="/Liste" element={<Liste/>}/>
       <Route path="/ModifNote/:id" element={<ModifNote/>}/>
->>>>>>> bcf197a5a2f74187e94d484338045acc567b9314
     </Routes>
     </Router>
     </main>

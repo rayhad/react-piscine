@@ -17,11 +17,8 @@ export default function CarnetdeNote(){
 
                 <div className='Arriere-plan2'>
                     <Button as={Link} to={'../CreationNote'} className='buttonCarnet'><p>Création d'une note</p></Button>
-<<<<<<< HEAD
                     <Button as={Link} to={'../ListeCarnetNotes'} className='buttonCarnet'><p>Listes des Carnets de notes</p></Button>
-=======
                     <Button as={Link} to={'../Liste'} className='buttonCarnet'><p>Listes des Carnets de notes</p></Button>
->>>>>>> bcf197a5a2f74187e94d484338045acc567b9314
                 </div>         
 
 
