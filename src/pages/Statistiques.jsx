@@ -11,18 +11,18 @@ export default function Statistiques(){
             <div className='arriere'>
                 
             <Card className='card-stat'>
-                <Card.Body className='card-text'>Nombres de carnet de notes créer :</Card.Body>
+                <Card.Body className='card-text'>Nombre de carnets de notes créés :</Card.Body>
             </Card>
             <Card className='card-stat'>
-                <Card.Body className='card-text'>Nombres de carnet de notes :</Card.Body>
+                <Card.Body className='card-text'>Nombre de carnets de notes :</Card.Body>
             </Card>
             <Card className='card-stat'>
-                <Card.Body className='card-text'>Nombres de carnet de notes par catégorie :</Card.Body>
+                <Card.Body className='card-text'>Nombre de carnets de notes par catégorie :</Card.Body>
             </Card>
 
             <div className='arriere2'>
                 <h2 className='titre'>Statistiques</h2>
-                <Button as={Link} to={'../'} className='buttonStatistique' variant="light">Precedent</Button>
+                <Button as={Link} to={'../'} className='buttonStatistique' variant="light">Précédent</Button>
             </div>
 
             </div>
