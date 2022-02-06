@@ -1,7 +1,6 @@
-import {Container, Row, Col, Button, Table, Card, Form } from 'react-bootstrap'
+import {Container, Row, Col, Button, Table, Card, Form, Nav, Navbar, NavDropdown, FormControl } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/Liste.css'
 export default function Liste (){
     const [notes, setNotes] = useState([])
@@ -32,7 +31,7 @@ export default function Liste (){
                 <td>{i + 1}</td>
                 <td>{note.titre}</td>
                 <td>{note.categorie}</td>
-                <td>{note.affnote}</td>
+                <td id="afficher-note">{note.affnote}</td>
                 <td>
                     <Button as={Link} to={'../ModifNote/' + note.id} variant="warning">Modifier</Button>
                 </td>
@@ -44,36 +43,44 @@ export default function Liste (){
             </tr>
         )
     })
+
     return (
         <>
         <div className='ListContainer'>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
+        <Container fluid>
+            <Navbar.Brand href="#">Liste des carnets</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+      <Nav
+        className="me-auto my-2 my-lg-0"
+        style={{ maxHeight: '100px' }}
+        navbarScroll
+      >
 
-<Card className='ListButton'>
-    <Card.Body>
-        <Card.Title id="ListTitle">Liste des carnets de notes</Card.Title>
-        <Button as={Link} to={'../CarnetdeNote'} className='ListPrecedent'>Precedent</Button>
-    </Card.Body>
-</Card>
+    <Nav.Link href="#action1">Home</Nav.Link>
+        <NavDropdown title="Link" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+      
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">Search</Button>
+      </Form>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
 
-
-<Form>
-    <Form.Check className='ListSwitch'
-        type="switch"
-        id="custom-switch"
-        label="Card / Tab"
-    />
-</Form>
-
-<nav class="navbarnavbar-light">
-    <div class="container-fluid">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
 
 <Container >
   

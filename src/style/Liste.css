@@ -1,6 +1,4 @@
 .ListContainer{
-    display:flex; 
-    flex-direction:row;
     background-color: blue;
     margin-left: auto;
     margin-right: auto;
@@ -56,6 +54,15 @@
     padding: 5px;
     background-color: white;
     border-radius: 7px;
-    margin-top: 200px;
+    margin-top: 50px;
     margin-right: 30px;
+}
+
+.NavList{
+    width: 100%;
+    height: 10vh;
+}
+
+#afficher-note{
+    width: 10vw;
 }
