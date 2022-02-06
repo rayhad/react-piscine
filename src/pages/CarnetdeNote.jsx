@@ -11,7 +11,7 @@ export default function CarnetdeNote(){
         <div>
 
             <div className='Arriere-plan1'>
-                <div className='Titre'>
+                <div className='Titre-Carnet'>
                     <h1>Carnets de notes</h1>    
                 </div>   
 

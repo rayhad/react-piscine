@@ -1,21 +1,20 @@
 
 .arriere{
-    background-color: rgb(21,14,210
-    );
+    background-color: rgb(21,14,210);
     width: 95vw;
     height: 75vh;
-    margin-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1%;
-    transform: translate(0,3.5em);
+    margin-top: 5em;
 }
 
 .card-stat{
     background-color: white;
-    margin: 10px;
     margin-left: 20px ;
-    width: 40vw;
+    width: 45%;
     display: flex;
-    transform : translate(30px, 9em);
+    transform : translate(50px, 15em);
     margin-bottom: 40px;
 }
 
@@ -27,18 +26,20 @@
     border: 3px solid black;
     border-radius: 20px;
     float: right;
-    margin-top: 7vh;
-    margin-right: 1vw;
-    transform: translate(-200px, -12em);
+    margin-top: -5em;
+    margin-right: 5em;
 }
 
 .titre{
-    transform: translate(60px, 1em);
+    margin-top: 3.5em;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .buttonStatistique{
-    transform: translate(65px, 3.5em);
-    width: 10vw;
+    margin-top: 2em;
+    margin-left: 1em;
+    width: 80%;
     background-color: rgb(21,14,210);
     color: white;
 }
