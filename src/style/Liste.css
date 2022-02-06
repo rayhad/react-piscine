@@ -1,0 +1,61 @@
+.ListContainer{
+    display:flex; 
+    flex-direction:row;
+    background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    width: 95%;
+    height: 80vh;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
+    
+}
+
+.ListButton{
+    height: 15vh;
+    width: 30vw;
+    margin-top: 20vh;
+    margin-left: 5vh;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
+    transform: translate(0, -9em);
+}
+
+.ListTitle{
+    margin-top: 2.5vh;
+    text-align: center;
+}
+
+.ListPrecedent{
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 100%;
+    font-size: 1em;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.ListSwitch{
+    background-color: white;
+    /*margin-left: 50%;*/
+    margin-left: 340%;
+    margin-top: 6vh;
+    width: 8vw;
+    border-radius: 5%;
+    transform: translate(760px);
+}
+
+.navbarnavbar-light{
+    width: 40vw;
+    height: 10%;
+    margin-top: 6vh;
+    transform: translate( 370px);
+}
+
+.crudStuff{
+    padding: 5px;
+    background-color: white;
+    border-radius: 7px;
+    margin-top: 200px;
+    margin-right: 30px;
+}
