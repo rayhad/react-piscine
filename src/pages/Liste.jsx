@@ -27,6 +27,7 @@ export default function Liste (){
 
     let displayNotes = notes.map((note, i) => {
         return(
+          <>
             <tr key={'notes' + note.id}>
                 <td>{i + 1}</td>
                 <td>{note.titre}</td>
@@ -41,6 +42,9 @@ export default function Liste (){
                     </Button>
                 </td>
             </tr>
+            </>
+
+            
         )
     })
 
@@ -67,32 +71,50 @@ export default function Liste (){
           <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
         </NavDropdown>
       </Nav>
-      
+
+      <p style={{
+        color:'white', 
+        marginRight:'1em', 
+        marginBottom:'0em',
+        padding:'0.25em',
+        borderRadius:'5px',
+        fontSize:'1.125em',
+        border:'1px solid white'
+        }}>
+          Tab / Card
+      </p>
+
       <Form className="d-flex">
+        <Form.Check 
+          type="switch"
+          id='btnSwitch-Liste'
+        />
+        
         <FormControl
           type="search"
           placeholder="Search"
           className="me-2"
           aria-label="Search"
         />
-        <Button variant="outline-success">Search</Button>
+        <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
+        
       </Form>
     </Navbar.Collapse>
   </Container>
 </Navbar>
 
 
-<Container >
+<Container className='tabContainer'>
   
-          <Row className='crudStuff'>
-            <Col>
+          <Row style={{overflowY:'scroll'}} className='crudStuff'>
+            <Col >
               <div className="mb-3">
                 <Button as={Link} to={"../CreationNote"}>
                   Ajouter une liste
                 </Button>
               </div>
   
-              <Table striped bordered hover>
+              <Table striped bordered hover >
                 <thead>
                   <tr>
                     <th>#</th>
