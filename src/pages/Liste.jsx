@@ -73,7 +73,8 @@ export default function Liste (){
       </Nav>
 
       <p style={{
-        color:'white', 
+        color:'black',
+        backgroundColor:'white', 
         marginRight:'1em', 
         marginBottom:'0em',
         padding:'0.25em',
