@@ -3,8 +3,10 @@ import { Container, Row, Col, Form, Button, Card, CardBody } from 'react-bootstr
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import '../style/Statistiques.css'
+import Liste from './Liste'
 
-export default function Statistiques(){
+
+export default function Statistiques({note}){
     return(
         <div>
 
@@ -14,7 +16,7 @@ export default function Statistiques(){
                 <Card.Body className='card-text'>Nombre de carnets de notes créés :</Card.Body>
             </Card>
             <Card className='card-stat'>
-                <Card.Body className='card-text'>Nombre de carnets de notes :</Card.Body>
+                <Card.Body className='card-text'>Nombre de notes : </Card.Body>
             </Card>
             <Card className='card-stat'>
                 <Card.Body className='card-text'>Nombre de carnets de notes par catégorie :</Card.Body>

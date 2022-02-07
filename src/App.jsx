@@ -11,10 +11,12 @@ export default function App(){
       
       <div className='box'>
         <h1>Accueil</h1>
+
         <div className='box2'>
         <Button as={Link} to={'../CarnetDeNote'} className='buttonAccueil'><p>Carnet de notes</p></Button>
         <Button as={Link} to={'../Statistiques'} className='buttonAccueil'><p>Statistiques</p></Button>
         </div>
+        
       </div>
     </div>
   )

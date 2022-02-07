@@ -2,6 +2,11 @@ import {Container, Row, Col, Button, Table, Card, Form, Nav, Navbar, NavDropdown
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import '../style/Liste.css'
+
+
+
+
+
 export default function Liste (){
     const [notes, setNotes] = useState([])
     
