@@ -9,6 +9,7 @@ import '../style/Liste.css'
 
 export default function Liste (){
     const [notes, setNotes] = useState([])
+    const [isSwitchOn, setIsSwitchOn] = useState({})
     
     useEffect(() =>{
         let datas = localStorage.getItem('Piscine-Notes')
@@ -29,6 +30,28 @@ export default function Liste (){
             localStorage.setItem('Piscine-Notes', JSON.stringify(tmp))
         }
     }
+    
+    let displayNotesCard = notes.map((note, i) => {
+      return(
+          <Card style={{marginBottom:'15px', marginLeft:'10px'}} key={'notes' + note.id}>
+              <Card.Body>
+              
+              <li><b># : </b>{i + 1}</li>
+              <li><b>Titre : </b>{note.titre}</li>
+              <li><b>Catégorie : </b>{note.categorie}</li>
+              <li><b>Notes : </b>{note.affnote}</li>
+              <td>
+                  <Button as={Link} to={'../ModifNote/' + note.id} variant="warning">Modifier</Button>
+              </td>
+              <td>
+                  <Button variant="danger" onClick={() => remove(note, i)}>
+                      Supprimer
+                  </Button>
+              </td>
+              </Card.Body>
+          </Card>
+      )  
+  })
 
     let displayNotes = notes.map((note, i) => {
         return(
@@ -49,10 +72,17 @@ export default function Liste (){
             </tr>
           </>
 
-            
+          
         )
     })
 
+    const onSwitchAction = () => {
+      setIsSwitchOn(!isSwitchOn)
+    }
+
+    if (isSwitchOn){
+
+    
     return (
         <>
         <div className='ListContainer'>
@@ -87,14 +117,17 @@ export default function Liste (){
         fontSize:'1.125em',
         border:'1px solid white'
         }}>
-          Tab / Card
+          Card / Tab
       </p>
 
       <Form className="d-flex">
-        <Form.Check 
-          type="switch"
+        
+        <Form.Switch 
+          onChange={onSwitchAction}
           id='btnSwitch-Liste'
+          checked={isSwitchOn}
         />
+        
         
         <FormControl
           type="search"
@@ -136,9 +169,93 @@ export default function Liste (){
             </Col>
           </Row>
         </Container>
+
 </div>
         
       </>
+    
     )
-    console.log({displayNotes})
+    }
+
+    else if(!isSwitchOn){
+      return(
+        <>
+        <div className='ListContainer'>
+
+    <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
+        <Container fluid>
+            <Navbar.Brand href="#">Liste des carnets</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+      <Nav
+        className="me-auto my-2 my-lg-0"
+        style={{ maxHeight: '100px' }}
+        navbarScroll
+      >
+
+    <Nav.Link href="#action1">Home</Nav.Link>
+        <NavDropdown title="Link" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+
+      <p style={{
+        color:'black',
+        backgroundColor:'white', 
+        marginRight:'1em', 
+        marginBottom:'0em',
+        padding:'0.25em',
+        borderRadius:'5px',
+        fontSize:'1.125em',
+        border:'1px solid white'
+        }}>
+          Card / Tab
+      </p>
+
+      <Form className="d-flex">
+        
+        <Form.Switch 
+          onChange={onSwitchAction}
+          id='btnSwitch-Liste'
+          checked={isSwitchOn}
+        />
+        
+        
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
+        
+      </Form>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+
+<Container className='CardContainer'>
+  
+  <Row  className=''>
+    <Col>
+      <div className="mb-3">
+        <Button as={Link} to={"../CreationNote"}>
+          Ajouter une liste
+        </Button>
+      </div>
+
+ 
+        <tbody style={{display:'grid', gridTemplateColumns:'30% 30% 30%',overflowY:'scroll', width:'138%', height:'75%'}}>{displayNotesCard}</tbody>
+        
+    </Col>
+  </Row>
+</Container>
+</div>
+</>
+      )
+    }
  }
