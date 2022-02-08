@@ -21,14 +21,29 @@ export default function Liste (){
     }, [])
 
 
+
+
     useEffect(()=>{
         if(searchText.length == 0){
           setNotesSearch(notes)
           
-        }else{
-          setNotesSearch([])
-        }
+        }/* else if(note.titre.toLowerCase().includes(searchText.toLowerCase())){
+
+        } */
     },[searchText])
+
+
+    /* else{
+      let notesFilter = notes.filter((note)=>{
+        note.titre.includes(searchText)
+      })
+
+      setNotesSearch([notesFilter])
+    } */
+
+
+
+
 
     function remove(note, i){
         let rep = window.confirm(
@@ -46,22 +61,40 @@ export default function Liste (){
 
 
     
-   /*  let noteSearch = 
-        notes.filter((note)=>
-        note.titre.toLowerCase().includes(searchText)
-        ) */
-
-
-
-
-
-
-
-
-
-
     
-    let displayNotesCard = notes.map((note, i) => {
+    
+    
+    
+    
+    
+    
+    
+    /* let noteSearch = 
+         notes.filter((note)=>
+         note.titre.toLowerCase().includes(searchText)
+         ) */
+
+
+         
+         
+
+  
+ 
+    // --------------------------------- CARDS --------------------------------
+    
+    /* let displayNotesCard = notes.map((note, i) => { */
+
+
+
+
+      let displayNotesCard = notes.filter((note) =>{
+        if (searchText == "") {
+          return note
+        }else if (note.titre.toLowerCase().includes(searchText.toLowerCase())){
+          return note
+        }
+      }).map((note, i) => {
+
       return(
           <Card style={{marginBottom:'15px', marginLeft:'10px'}} key={'notes' + note.id}>
               <Card.Body>
@@ -83,10 +116,16 @@ export default function Liste (){
       )  
   })
 
+//---------------------------------TAB-------------------------------------
 
 
-
-    let displayNotes = notesSearch.map((note, i) => {
+  let displayNotes = notes.filter((note) =>{
+    if (searchText == "") {
+      return note
+    }else if (note.titre.toLowerCase().includes(searchText.toLowerCase())){
+      return note
+    }
+      }).map((note, i) =>  {
         return(
           <>
             <tr key={'notes' + note.id}>
@@ -265,13 +304,15 @@ export default function Liste (){
           checked={isSwitchOn}
         />
         
-        
-        <FormControl
+        <Search handleSearchNote={setSearchText}/>
+
+        {/* <FormControl
           type="search"
           placeholder="Search"
           className="me-2"
           aria-label="Search"
-        />
+        /> */}
+
         <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
         
       </Form>
