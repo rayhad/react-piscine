@@ -1,6 +1,11 @@
 main{
-  background-color: white;
+  background-color: rgb(56, 56, 56);
   height: 100vh;
+  font-family: Tahoma, sans-serif,
+}
+
+*{
+  font-family: Tahoma, sans-serif,
 }
 
 .background{
@@ -8,7 +13,7 @@ main{
 }
 
 .row-app{
-  background-color: rgb(0, 0, 200);
+  background-color: rgb(0, 0, 116);
   border: 2px solid black;
   border-radius: 10px;
   height: 70vh;
@@ -17,7 +22,8 @@ main{
 .row-app h1{
   color: white;
   text-align: center;
-  font-size: 2em;
+  font-size: 5vw;
+  
 }
 
 .col-app-2{
@@ -37,7 +43,6 @@ main{
   height: 25%;
   border-radius: 10px;
   box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, .2);
-  background-color: rgba(0, 0, 255,0.8);
   font-size:x-large;
 }
 
