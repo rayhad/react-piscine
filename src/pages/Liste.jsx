@@ -84,9 +84,6 @@ export default function Liste (){
     
     /* let displayNotesCard = notes.map((note, i) => { */
 
-
-
-
       let displayNotesCard = notes.filter((note) =>{
         if (searchText == "") {
           return note
@@ -96,7 +93,7 @@ export default function Liste (){
       }).map((note, i) => {
 
       return(
-          <Card style={{marginBottom:'15px', marginLeft:'10px'}} key={'notes' + note.id}>
+          <Card className='Cards-Liste' key={'notes' + note.id}>
               <Card.Body>
               
               <li><b># : </b>{i + 1}</li>
@@ -197,8 +194,6 @@ export default function Liste (){
       </p>
 
       <Form className="d-flex">
-        
-      <Search handleSearchNote={setSearchText}/>
       
 
       <Form.Switch 
@@ -206,17 +201,12 @@ export default function Liste (){
         id='btnSwitch-Liste'
         checked={isSwitchOn}
       />
-        
-        
-        {/* <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        /> */}
 
 
-        <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
+      <Search handleSearchNote={setSearchText}/>
+        
+
+      <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
         
       </Form>
     </Navbar.Collapse>
@@ -306,13 +296,6 @@ export default function Liste (){
         
         <Search handleSearchNote={setSearchText}/>
 
-        {/* <FormControl
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-        /> */}
-
         <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
         
       </Form>
@@ -332,7 +315,7 @@ export default function Liste (){
       </div>
 
  
-        <tbody style={{display:'grid', gridTemplateColumns:'30% 30% 30%',overflowY:'scroll', width:'138%', height:'75%'}}>{displayNotesCard}</tbody>
+        <tbody className='tbody-Cards' style={{display:'grid', gridTemplateColumns:'33% 33% 33%',overflowY:'scroll',width:'100%', height:'100%'}}>{displayNotesCard}</tbody>
         
     </Col>
   </Row>

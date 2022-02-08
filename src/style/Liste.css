@@ -65,6 +65,11 @@
     height: 60vh;
 }
 
+.Cards-Liste{
+    margin: 0;
+    width: 25vw;
+}
+
 .NavList{
     width: 100%;
     height: 10vh;
