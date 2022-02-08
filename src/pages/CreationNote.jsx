@@ -1,10 +1,13 @@
 import '../style/CreationNote.css';
 import '../style/App.css'
 import React from 'react';
-import {useState, useEffect} from 'react'
-import {Link, useNavigate, useParams} from 'react-router-dom'
+import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import {Card, Button,Form, Col, Row, Container} from 'react-bootstrap'
 import { Converter } from 'showdown'
+
+
+// -------------------------FUNCTION------------------------------
 
 
 export default function CreationNote() {
@@ -49,6 +52,7 @@ export default function CreationNote() {
     let text = NoteAdd.affnote,
     htmlMD = converter.makeHtml(text)
   
+    // ------------------------ RETURN ----------------------------------------
 
     return(
         <div>
@@ -88,14 +92,20 @@ export default function CreationNote() {
                                     </Card.Body>
 
                                     <Form.Group>
-                                        <Form.Control id="entreeNote" placeholder="Votre note..." value={NoteAdd.affnote} onChange={e => {
-                                        let tmp = {...NoteAdd}
-                                        tmp.affnote = e.target.value
-                                        setNoteAdd(tmp)
-                                        }} required/>
+                                        
+                                        <Form.Control 
+                                            style={{resize:'none'}} 
+                                            as="textarea" 
+                                            id="entreeNote" 
+                                            placeholder="Votre note..." 
+                                            value={NoteAdd.affnote} 
+                                            onChange={e => {
+                                                let tmp = {...NoteAdd}
+                                                tmp.affnote = e.target.value
+                                                setNoteAdd(tmp)
+                                                }} required/>
                                     </Form.Group>
-                                    
-                                    <br></br>
+
                                     <Button variant="success" type="submit" className="Enregistrer-annuler">Enregistrer</Button>
                                     <Button as={Link} to={'../ListeCarnetNote/' + idC } className="Enregistrer-annuler">Annuler</Button>
                                 </Form>

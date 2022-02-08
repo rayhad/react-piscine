@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import '../style/Liste.css'
 import Search from './Search'
 
+// ------------------FUNCTION-----------------------
 
 export default function Liste (){
     const [notes, setNotes] = useState([])
@@ -11,6 +12,9 @@ export default function Liste (){
     const [isSwitchOn, setIsSwitchOn] = useState({})
     const [searchText, setSearchText] = useState('');
     
+
+    // ----------------- LOCAL STORAGE -----------------
+
     
     useEffect(() =>{
         let datas = localStorage.getItem('Piscine-Notes')
@@ -21,29 +25,15 @@ export default function Liste (){
     }, [])
 
 
+    // ---------------FUNCTION SEARCH ----------------
 
 
     useEffect(()=>{
         if(searchText.length == 0){
           setNotesSearch(notes)
           
-        }/* else if(note.titre.toLowerCase().includes(searchText.toLowerCase())){
-
-        } */
+        }
     },[searchText])
-
-
-    /* else{
-      let notesFilter = notes.filter((note)=>{
-        note.titre.includes(searchText)
-      })
-
-      setNotesSearch([notesFilter])
-    } */
-
-
-
-
 
     function remove(note, i){
         let rep = window.confirm(
@@ -56,43 +46,20 @@ export default function Liste (){
             localStorage.setItem('Piscine-Notes', JSON.stringify(tmp))
         }
     }
-
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /* let noteSearch = 
-         notes.filter((note)=>
-         note.titre.toLowerCase().includes(searchText)
-         ) */
-
-
-         
-         
-
   
  
     // --------------------------------- CARDS --------------------------------
+
     
-    /* let displayNotesCard = notes.map((note, i) => { */
 
       let displayNotesCard = notes.filter((note) =>{
         if (searchText == "") {
           return note
         }else if (note.titre.toLowerCase().includes(searchText.toLowerCase())){
           return note
-        }
-      }).map((note, i) => {
+        }}).map((note, i) => {
 
-      return(
+        return(
           <Card className='Cards-Liste' key={'notes' + note.id}>
               <Card.Body>
               
@@ -113,7 +80,7 @@ export default function Liste (){
       )  
   })
 
-//---------------------------------TAB-------------------------------------
+    //---------------------------------TAB-------------------------------------
 
 
   let displayNotes = notes.filter((note) =>{
@@ -123,6 +90,7 @@ export default function Liste (){
       return note
     }
       }).map((note, i) =>  {
+
         return(
           <>
             <tr key={'notes' + note.id}>
@@ -140,13 +108,11 @@ export default function Liste (){
                 </td>
             </tr>
           </>
-
-          
         )
     })
 
 
-
+// -------------------------- FUNCTION SWITCH + RETURN NAVBAR LISTE----------------------
 
 
     const onSwitchAction = () => {
@@ -156,62 +122,47 @@ export default function Liste (){
     if (isSwitchOn){
 
     
-    return (
-        <>
-        <div className='ListContainer'>
+      return (
+          <>
+          <div className='ListContainer'>
 
-    <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
+      <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
         <Container fluid>
-            <Navbar.Brand href="#">Liste des carnets</Navbar.Brand>
+            <Navbar.Brand>Liste des carnets</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: '100px' }}
+                navbarScroll>
+              </Nav>
 
-    <Nav.Link href="#action1">Home</Nav.Link>
-        <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
+                <p style={{
+                  color:'black',
+                  backgroundColor:'white', 
+                  marginRight:'1em', 
+                  marginBottom:'0em',
+                  padding:'0.25em',
+                  borderRadius:'5px',
+                  fontSize:'1.125em',
+                  border:'1px solid white'
+                  }}>
+                    Card / Tab
+                </p>
 
-      <p style={{
-        color:'black',
-        backgroundColor:'white', 
-        marginRight:'1em', 
-        marginBottom:'0em',
-        padding:'0.25em',
-        borderRadius:'5px',
-        fontSize:'1.125em',
-        border:'1px solid white'
-        }}>
-          Card / Tab
-      </p>
+              <Form className="d-flex">
+                <Form.Switch 
+                  onChange={onSwitchAction}
+                  id='btnSwitch-Liste'
+                  checked={isSwitchOn}/>
 
-      <Form className="d-flex">
-      
-
-      <Form.Switch 
-        onChange={onSwitchAction}
-        id='btnSwitch-Liste'
-        checked={isSwitchOn}
-      />
-
-
-      <Search handleSearchNote={setSearchText}/>
-        
-      </Form>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-
-
-<Container className='tabContainer'>
+                <Search handleSearchNote={setSearchText}/>
+              </Form>
+                
+            </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    <Container className='tabContainer'>
   
           <Row style={{overflowY:'scroll'}} className='crudStuff'>
             <Col >
@@ -237,86 +188,79 @@ export default function Liste (){
             </Col>
           </Row>
         </Container>
-
-</div>
+      </div>
+    </>
+  )}
         
-      </>
     
-    )
-    }
 
-    else if(!isSwitchOn){
-      return(
-        <>
+  else if(!isSwitchOn){
+    return(
+      <>
         <div className='ListContainer'>
 
-    <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
-        <Container fluid>
-            <Navbar.Brand href="#">Liste des carnets</Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
+          <Navbar bg="dark" variant="dark" expand="lg" className="NavList">
+            <Container fluid>
+              <Navbar.Brand href="#">Liste des carnets</Navbar.Brand>
+              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: '100px' }}
+                navbarScroll
+              >
 
-    <Nav.Link href="#action1">Home</Nav.Link>
-        <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
+                <Nav.Link href="#action1">Home</Nav.Link>
+                <NavDropdown title="Link" id="navbarScrollingDropdown">
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
 
-      <p style={{
-        color:'black',
-        backgroundColor:'white', 
-        marginRight:'1em', 
-        marginBottom:'0em',
-        padding:'0.25em',
-        borderRadius:'5px',
-        fontSize:'1.125em',
-        border:'1px solid white'
-        }}>
-          Card / Tab
-      </p>
+              <p style={{
+                color:'black',
+                backgroundColor:'white', 
+                marginRight:'1em', 
+                marginBottom:'0em',
+                padding:'0.25em',
+                borderRadius:'5px',
+                fontSize:'1.125em',
+                border:'1px solid white'
+              }}>
+                Card / Tab
+              </p>
 
-      <Form className="d-flex">
+              <Form className="d-flex">
         
-        <Form.Switch 
-          onChange={onSwitchAction}
-          id='btnSwitch-Liste'
-          checked={isSwitchOn}
-        />
+                <Form.Switch 
+                  onChange={onSwitchAction}
+                  id='btnSwitch-Liste'
+                  checked={isSwitchOn}
+                />
         
-        <Search handleSearchNote={setSearchText}/>
+                <Search handleSearchNote={setSearchText}/>
         
-      </Form>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
+              </Form>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
 
-<Container className='CardContainer'>
+        <Container className='CardContainer'>
   
-  <Row  className=''>
-    <Col>
-      <div className="mb-3">
-        <Button as={Link} to={"../CreationNote"}>
-          Ajouter une liste
-        </Button>
+          <Row  className=''>
+            <Col>
+              <div className="mb-3">
+                <Button as={Link} to={"../CreationNote"}>
+                  Ajouter une liste
+                </Button>
+              </div>
+              <tbody className='tbody-Cards' style={{display:'grid', gridTemplateColumns:'33% 33% 33%',overflowY:'scroll',width:'100%', height:'100%'}}>{displayNotesCard}</tbody>
+            </Col>
+          </Row>
+        </Container>
       </div>
-
- 
-        <tbody className='tbody-Cards' style={{display:'grid', gridTemplateColumns:'33% 33% 33%',overflowY:'scroll',width:'100%', height:'100%'}}>{displayNotesCard}</tbody>
-        
-    </Col>
-  </Row>
-</Container>
-</div>
-</>
-      )
-    }
- }
+    </>
+)}}
