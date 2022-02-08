@@ -1,8 +1,7 @@
 import './style/App.css';
 import React from "react";
 import { Link } from 'react-router-dom';
-import CarnetdeNote from './pages/CarnetdeNote';
-import {Card, Button, Col, Row, Container} from 'react-bootstrap'
+import { Button, Col, Row, Container} from 'react-bootstrap'
 document.body.style.backgroundColor = 'white'
 
 export default function App(){

@@ -17,6 +17,7 @@ main{
 .row-app h1{
   color: white;
   text-align: center;
+  font-size: 2em;
 }
 
 .col-app-2{
@@ -24,6 +25,7 @@ main{
   border: 3px solid black;
   border-radius: 20px;
   height: 75%;
+  margin-left: -2.5%;
   display:flex;
   flex-direction: column;
   justify-content: center;
