@@ -55,7 +55,7 @@ export default function ModifNote(){
             <Card className='cardButton'>
                 <Card.Body>
                     <Card.Title id="creationTitle">Création d'une note</Card.Title>
-                    <Button className="btnCreation1">Prévisualiser</Button>
+                    <Button as={Link} to={'../PreviNote'} className="btnCreation1">Prévisualiser</Button>
                     <Button className="btnCreation1">Précédent</Button>
                 </Card.Body>
             </Card>

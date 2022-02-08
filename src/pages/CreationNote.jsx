@@ -3,8 +3,12 @@ import React from 'react';
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {Card, Button, Input, ListGroupItem, ListItem, ListGroup, Form} from 'react-bootstrap'
+import { Converter } from 'showdown'
+
 
 export default function CreationNote() {
+    const converter = new Converter()
+
     const [NoteAdd, setNoteAdd] = useState({
         id:'',
         titre: '',
@@ -29,18 +33,20 @@ export default function CreationNote() {
     notes.push(tmpNote)
     localStorage.setItem('Piscine-Notes', JSON.stringify(notes))
     navigate('/Liste')
+    
 }
+    let text = NoteAdd.affnote,
+    htmlMD = converter.makeHtml(text)
+  
 
     return(
         <div>
+            
+            <div dangerouslySetInnerHTML={{ __html: htmlMD }} /> 
+
+
             <div className='cardContainer'>
-                <Card className='cardButton'>
-                    <Card.Body>
-                        <Card.Title id="creationTitle">Création d'une note</Card.Title>
-                        <Button className="btnCreation1">Prévisualiser</Button>
-                        <Button as={Link} to={'../CarnetdeNote'} className='btnCreation1'>Precedent</Button>
-                    </Card.Body>
-                </Card>
+
 
                 <Card className='cardCreation' >
                 <Form onSubmit={e => add(e)}>
@@ -82,7 +88,10 @@ export default function CreationNote() {
                         <Button className="Enregistrer-annuler">Annuler</Button>
                     </Form>
                 </Card>
+                
             </div>
+                        
+            
 
         </div>
     )

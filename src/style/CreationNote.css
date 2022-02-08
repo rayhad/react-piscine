@@ -12,20 +12,13 @@
 }
 
 .cardCreation{
-    width: 60vw;
+    width: 40vw;
     height:45vh;
     margin-top: 20vh;
     margin-left: 5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
-.cardButton{
-    height: 35vh;
-    width: 25vw;
-    margin-top: 25vh;
-    margin-left: 5vh;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
-}
 
 .btnCreation1{
     margin-top: 2vh;
