@@ -2,14 +2,15 @@ import {Container, Row, Col, Button, Table, Card, Form, Nav, Navbar, NavDropdown
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import '../style/Liste.css'
-
-
-
+import Search from './Search'
 
 
 export default function Liste (){
     const [notes, setNotes] = useState([])
+    const [notesSearch, setNotesSearch] = useState([])
     const [isSwitchOn, setIsSwitchOn] = useState({})
+    const [searchText, setSearchText] = useState('');
+    
     
     useEffect(() =>{
         let datas = localStorage.getItem('Piscine-Notes')
@@ -18,6 +19,16 @@ export default function Liste (){
         datas = JSON.parse(datas)
         setNotes(datas)
     }, [])
+
+
+    useEffect(()=>{
+        if(searchText.length == 0){
+          setNotesSearch(notes)
+          
+        }else{
+          setNotesSearch([])
+        }
+    },[searchText])
 
     function remove(note, i){
         let rep = window.confirm(
@@ -30,6 +41,25 @@ export default function Liste (){
             localStorage.setItem('Piscine-Notes', JSON.stringify(tmp))
         }
     }
+
+    
+
+
+    
+   /*  let noteSearch = 
+        notes.filter((note)=>
+        note.titre.toLowerCase().includes(searchText)
+        ) */
+
+
+
+
+
+
+
+
+
+
     
     let displayNotesCard = notes.map((note, i) => {
       return(
@@ -53,7 +83,10 @@ export default function Liste (){
       )  
   })
 
-    let displayNotes = notes.map((note, i) => {
+
+
+
+    let displayNotes = notesSearch.map((note, i) => {
         return(
           <>
             <tr key={'notes' + note.id}>
@@ -75,6 +108,10 @@ export default function Liste (){
           
         )
     })
+
+
+
+
 
     const onSwitchAction = () => {
       setIsSwitchOn(!isSwitchOn)
@@ -122,19 +159,24 @@ export default function Liste (){
 
       <Form className="d-flex">
         
-        <Form.Switch 
-          onChange={onSwitchAction}
-          id='btnSwitch-Liste'
-          checked={isSwitchOn}
-        />
+      <Search handleSearchNote={setSearchText}/>
+      
+
+      <Form.Switch 
+        onChange={onSwitchAction}
+        id='btnSwitch-Liste'
+        checked={isSwitchOn}
+      />
         
         
-        <FormControl
+        {/* <FormControl
           type="search"
           placeholder="Search"
           className="me-2"
           aria-label="Search"
-        />
+        /> */}
+
+
         <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
         
       </Form>
