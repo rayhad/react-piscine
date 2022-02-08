@@ -205,9 +205,6 @@ export default function Liste (){
 
       <Search handleSearchNote={setSearchText}/>
         
-
-      <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
-        
       </Form>
     </Navbar.Collapse>
   </Container>
@@ -295,8 +292,6 @@ export default function Liste (){
         />
         
         <Search handleSearchNote={setSearchText}/>
-
-        <Button style={{marginRight:'1vw'}} variant="outline-success">Search</Button>
         
       </Form>
     </Navbar.Collapse>
