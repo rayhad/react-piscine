@@ -12,8 +12,8 @@ export default function CarnetdeNote(){
                 <Col className='col-app-1 my-auto col-4'><h1>Carnet de notes</h1></Col>
 
                 <Col className='col-app-2 my-auto col-8'>
-                    <Button as={Link} to={'../CreationNote'} style={{marginBottom:'15%'}} className='buttonAccueil'><p style={{lineHeight:'10vh'}}>Création d'une note</p></Button>
-                    <Button as={Link} to={'../Liste'} className='buttonAccueil'><p style={{lineHeight:'10vh'}}>Listes des Carnets de notes</p></Button>
+                    <Button as={Link} to={'../CreationNote'} style={{marginBottom:'15%'}} className='buttonAccueil'><p style={{lineHeight:'10vh',fontSize:'3vw'}}>Création d'une note</p></Button>
+                    <Button as={Link} to={'../Liste'} className='buttonAccueil'><p style={{lineHeight:'10vh', fontSize:'3vw'}}>Listes des carnets</p></Button>
                 </Col>         
             </Row>
         </Container>

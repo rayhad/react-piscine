@@ -7,6 +7,9 @@ import {Card, Button,Form, Col, Row, Container} from 'react-bootstrap'
 import { Converter } from 'showdown'
 
 
+// -------------------------FUNCTION------------------------------
+
+
 export default function CreationNote() {
     const converter = new Converter()
 
@@ -41,6 +44,7 @@ export default function CreationNote() {
     let text = NoteAdd.affnote,
     htmlMD = converter.makeHtml(text)
   
+    // ------------------------ RETURN ----------------------------------------
 
     return(
         <div>
