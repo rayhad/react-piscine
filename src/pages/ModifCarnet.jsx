@@ -1,37 +1,36 @@
-import { Container, Row, Col, Form, Button, Card} from 'react-bootstrap'
-import {Link,useNavigate,useParams} from 'react-router-dom'
+import {Form, Button, Card} from 'react-bootstrap'
+import {useNavigate , useParams, Link} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 
-export default function ModifNote(){
-    const [Note, setNote] = useState ({})
-    const [NoteEdit, setNoteEdit] = useState({
+export default function ModifCarnet(){
+    const [carnet, setcarnet] = useState ({})
+    const [carnetEdit, setcarnetEdit] = useState({
         id:'',
-        id_Carnet:'',
         titre: '',
         categorie: '',
-        affnote: '',
     })
 
     const { id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() =>{
-        let liste = localStorage.getItem('Piscine-Notes')
+        let liste = localStorage.getItem('Piscine-Carnet')
         liste = JSON.parse(liste)
-        let res = liste.filter(Note => Note.id === Number(id))
-
+        let res = liste.filter(carnet => carnet.id === Number(id))
+        
         if (res.length === 0){
             alert('Aucune note dans la base')
-            navigate('/Liste')
+            navigate('/ListeCarnet')
         }else {
-            setNote(res[0])
-            setNoteEdit(res[0])
+            setcarnet(res[0])
+            setcarnetEdit(res[0])
         }
+        
     },[id, navigate])
 
     function edit(e){
         e.preventDefault()
-        let liste = localStorage.getItem('Piscine-Notes')
+        let liste = localStorage.getItem('Piscine-Carnet')
         liste = JSON.parse(liste)
 
         let i_a = -1
@@ -42,22 +41,22 @@ export default function ModifNote(){
             alert("Erreur lors de l'enregistrement")
             return null
         }
-        liste[i_a] = NoteEdit
-        localStorage.setItem('Piscine-Notes', JSON.stringify(liste))
-        navigate('/ListeCarnetNote/' + Note.id_Carnet )
-
+        liste[i_a] = carnetEdit
+        localStorage.setItem('Piscine-Carnet', JSON.stringify(liste))
+        navigate('/ListeCarnet')
     }
     function reset(){
-        setNoteEdit(Note)
+        setcarnetEdit(carnet)
     }
+
     return (
         <div>
         <div className='cardContainer'>
             <Card className='cardButton'>
                 <Card.Body>
                     <Card.Title id="creationTitle">Création d'une note</Card.Title>
-                    <Button as={Link} to={'../PreviNote'} className="btnCreation1">Prévisualiser</Button>
-                    <Button className="btnCreation1">Précédent</Button>
+                    <Button className="btnCreation1">Prévisualiser</Button>
+                    <Button as={Link} to={'../ListeCarnet'} className="btnCreation1">Précédent</Button>
                 </Card.Body>
             </Card>
 
@@ -68,18 +67,18 @@ export default function ModifNote(){
                         
                         <Form.Group>
                         <Form.Control type="text" placeholder='Insérez un titre à votre note' 
-                        value ={NoteEdit.titre} 
-                        onChange={e => {let tmp ={ ...NoteEdit } 
+                        value ={carnetEdit.titre} 
+                        onChange={e => {let tmp ={ ...carnetEdit } 
                         tmp.titre=e.target.value 
-                        setNoteEdit(tmp)}} required />
+                        setcarnetEdit(tmp)}} required />
                         </Form.Group>
                         
                     </Card.Title>
                     <Form.Group>
-                    <Form.Select value={NoteEdit.categorie} onChange={e => {
-                        let tmp = {...NoteEdit}
+                    <Form.Select value={carnetEdit.categorie} onChange={e => {
+                        let tmp = {...carnetEdit}
                         tmp.categorie = e.target.value
-                        setNoteEdit(tmp)
+                        setcarnetEdit(tmp)
                     }}
                     required>
                         <option>Sélectionnez une catégorie</option>
@@ -89,16 +88,9 @@ export default function ModifNote(){
                     </Form.Select>
                     </Form.Group>
                 </Card.Body>
-                <Form.Group>
-                    <Form.Control id="entreeNote" placeholder="Votre note..." value={NoteEdit.affnote} onChange={e => {
-                        let tmp = {...NoteEdit}
-                        tmp.affnote = e.target.value
-                        setNoteEdit(tmp)
-                    }} required/>
-                </Form.Group>
                     <br></br>
                     <Button variant="success" type="submit" className="Enregistrer-annuler">Modifier et Enregistrer</Button>
-                    <Button as={Link} to={'/ListeCarnetNote/' + Note.id_Carnet} className="Enregistrer-annuler">Annuler la modification</Button>
+                    <Button className="Enregistrer-annuler">Annuler la modification</Button>
                 </Form>
             </Card>
         </div>

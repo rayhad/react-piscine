@@ -2,16 +2,17 @@ import '../style/CreationNote.css';
 import '../style/App.css'
 import React from 'react';
 import {useState, useEffect} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import {Card, Button,Form, Col, Row, Container} from 'react-bootstrap'
 import { Converter } from 'showdown'
 
 
 export default function CreationNote() {
     const converter = new Converter()
-
+    const { id } = useParams()
     const [NoteAdd, setNoteAdd] = useState({
         id:'',
+        id_Carnet:'',
         titre: '',
         categorie: '',
         affnote: '',
@@ -20,6 +21,10 @@ export default function CreationNote() {
 
     const navigate = useNavigate()
     
+    let carnetId = localStorage.getItem('Piscine-Carnet')
+    carnetId = JSON.parse(carnetId)
+    const idC = id
+    console.log(idC)
 
     function add(e){
         e.preventDefault()
@@ -28,14 +33,17 @@ export default function CreationNote() {
         let tmpNote = {...NoteAdd}
         tmpNote.id = id
         setNoteAdd(tmpNote)
-    
+        
+        const idCarnet = idC
+        tmpNote.id_Carnet = idC
+        setNoteAdd(tmpNote) 
 
         let notes = localStorage.getItem('Piscine-Notes')
         if(notes === null) notes= '[]'
         notes = JSON.parse(notes)
         notes.push(tmpNote)
         localStorage.setItem('Piscine-Notes', JSON.stringify(notes))
-        navigate('/Liste')
+        navigate('/ListeCarnetNote/' + idC)
     }
     
     let text = NoteAdd.affnote,
@@ -89,7 +97,7 @@ export default function CreationNote() {
                                     
                                     <br></br>
                                     <Button variant="success" type="submit" className="Enregistrer-annuler">Enregistrer</Button>
-                                    <Button className="Enregistrer-annuler">Annuler</Button>
+                                    <Button as={Link} to={'../ListeCarnetNote/' + idC } className="Enregistrer-annuler">Annuler</Button>
                                 </Form>
                             </Card>       
                         </Col>
