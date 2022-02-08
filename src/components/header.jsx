@@ -1,14 +1,14 @@
-//import logo from './src/img/piscinelogo.png';
 import React from 'react'
-import {Navbar, Nav, Container} from 'react-bootstrap'
+import piscinelogo from '../images/piscinelogo.png'
+import {Navbar, Nav, Container, Image} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { NavLink } from 'react-router-dom'
 import '../pages/CarnetdeNote'
 
 export default function header(){
     return(
         <Navbar bg="dark" expand="lg" variant='dark'>
         <Container>
+          <img src={piscinelogo} width={30} height={30} style={{marginRight:'1%'}}/>
           <LinkContainer to ="/">
           <Navbar.Brand href="#home"> React-Piscine ! </Navbar.Brand>
           </LinkContainer>

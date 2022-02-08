@@ -1,28 +1,21 @@
-import '../style/CarnetNotes.css';
 import React from 'react'
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import '../style/CarnetNotes.css';
+import { Container, Row, Col, Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import '../style/App.css';
 
 
 export default function CarnetdeNote(){
     return(
-        <div>
 
-            <div className='Arriere-plan1'>
-                <div className='Titre-Carnet'>
-                    <h1>Carnets de notes</h1>    
-                </div>   
+        <Container className='background'>
+            <Row className='row-app'>
+                <Col className='col-app-1 my-auto col-4'><h1>Carnet de notes</h1></Col>
 
-                <div className='Arriere-plan2'>
-                    <Button as={Link} to={'../CreationNote'} className='buttonCarnet'><p>Création d'une note</p></Button>
-                    <Button as={Link} to={'../Liste'} className='buttonCarnet'><p>Listes des Carnets de notes</p></Button>
-                </div>         
-
-
-            </div>
-
-        </div>
+                <Col className='col-app-2 my-auto col-8'>
+                    <Button as={Link} to={'../CreationNote'} style={{marginBottom:'15%'}} className='buttonAccueil'><p style={{lineHeight:'10vh'}}>Création d'une note</p></Button>
+                    <Button as={Link} to={'../Liste'} className='buttonAccueil'><p style={{lineHeight:'10vh'}}>Listes des Carnets de notes</p></Button>
+                </Col>         
+            </Row>
+        </Container>
     )
 }
