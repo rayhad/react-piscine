@@ -74,21 +74,6 @@ export default function CreationNote() {
                                                 setNoteAdd(tmp)}} required />
                                             </Form.Group>
                                         </Card.Title>
-
-
-                                        <Form.Group>
-                                            <Form.Select value={NoteAdd.categorie} onChange={e => {
-                                                let tmp = {...NoteAdd}
-                                                tmp.categorie = e.target.value
-                                                setNoteAdd(tmp)
-                                                }}required>
-
-                                                <option>Sélectionnez une catégorie</option>
-                                                <option value="1">Catégorie 1</option>
-                                                <option value="2">Catégorie 2</option>
-                                                <option value="3">Catégorie 3</option>
-                                            </Form.Select>
-                                        </Form.Group>
                                     </Card.Body>
 
                                     <Form.Group>

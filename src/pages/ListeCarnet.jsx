@@ -44,23 +44,32 @@ export default function Liste (){
 
     let displayCarnetsCard = carnets.map((carnet, i) => {
       return(
-          <Card style={{marginBottom:'15px', marginLeft:'10px'}} key={'carnets' + carnet.id}>
+          <Card style={{marginBottom:'15px'}} key={'carnets' + carnet.id}>
               <Card.Body>
               
-              <li><b># : </b>{i + 1}</li>
-              <li><b>Titre : </b>{carnet.titre}</li>
-              <li><b>Catégorie : </b>{carnet.categorie}</li>
-              <td>
-                <Button as={Link} to={'../ListeCarnetNote/' + carnet.id}>Observer</Button>
-              </td>
-              <td>
-                  <Button as={Link} to={'../ModifCarnet/' + carnet.id} variant="warning">Modifier</Button>
-              </td>
-              <td>
-                  <Button variant="danger" onClick={() => remove(carnet, i)}>
-                      Supprimer
-                  </Button>
-              </td>
+              
+                <li><b># : </b>{i + 1}</li>
+                <li><b>Titre : </b>{carnet.titre}</li>
+                <li><b>Catégorie : </b>{carnet.categorie}</li>
+              
+              
+                <Row>
+                  <Col className='cards-col-ListeCarnet col-4'>
+                    <Button as={Link} to={'../ListeCarnetNote/' + carnet.id}>Observer</Button>
+                  </Col>
+
+                  <Col className='cards-col-ListeCarnet col-4'>
+                      <Button as={Link} to={'../ModifCarnet/' + carnet.id} variant="warning">Modifier</Button>
+                  </Col>
+
+                  <Col className='cards-col-ListeCarnet col-4'>
+                      <Button variant="danger" onClick={() => remove(carnet, i)}>
+                          Supprimer
+                      </Button>
+                  </Col>
+
+                </Row>
+
               </Card.Body>
           </Card>
       )  
@@ -77,13 +86,13 @@ export default function Liste (){
               <td>{i + 1}</td>
               <td>{carnet.titre}</td>
               <td>{carnet.categorie}</td>
-              <td>
+              <td className='col-4'>
                 <Button as={Link} to={'../ListeCarnetNote/' + carnet.id}>Observer</Button>
               </td>
-              <td>
+              <td className='col-4'>
                   <Button as={Link} to={'../ModifCarnet/' + carnet.id} variant="warning">Modifier</Button>
               </td>
-              <td>
+              <td className='col-4'>
                 <Button variant="danger" onClick={() => remove(carnet, i)}>
                     Supprimer
                 </Button>
@@ -186,15 +195,17 @@ export default function Liste (){
                       Ajouter un Carnet
                     </Button>
                   </div>
+                  <div style={{height:'99%'}}>
                   <tbody style={{
                     display:'grid', 
-                    gridTemplateColumns:'30% 30% 30%',
-                    overflowY:'scroll', 
-                    width:'138%', 
+                    gridTemplateColumns:'30% 30%',
+                    overflowY:'scroll',
+                    width:'100vw',
                     height:'75%'
                   }}>
                     {displayCarnetsCard}
-                  </tbody>        
+                  </tbody>       
+                  </div> 
                 </Col>
               </Row>
             </Container>

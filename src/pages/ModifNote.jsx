@@ -8,7 +8,6 @@ export default function ModifNote(){
         id:'',
         id_Carnet:'',
         titre: '',
-        categorie: '',
         affnote: '',
     })
 
@@ -53,13 +52,6 @@ export default function ModifNote(){
     return (
         <div>
         <div className='cardContainer'>
-            <Card className='cardButton'>
-                <Card.Body>
-                    <Card.Title id="creationTitle">Création d'une note</Card.Title>
-                    <Button as={Link} to={'../PreviNote'} className="btnCreation1">Prévisualiser</Button>
-                    <Button className="btnCreation1">Précédent</Button>
-                </Card.Body>
-            </Card>
 
             <Card className='cardCreation' >
             <Form onSubmit={e => edit(e)}>
@@ -75,19 +67,6 @@ export default function ModifNote(){
                         </Form.Group>
                         
                     </Card.Title>
-                    <Form.Group>
-                    <Form.Select value={NoteEdit.categorie} onChange={e => {
-                        let tmp = {...NoteEdit}
-                        tmp.categorie = e.target.value
-                        setNoteEdit(tmp)
-                    }}
-                    required>
-                        <option>Sélectionnez une catégorie</option>
-                        <option value="1">Catégorie 1</option>
-                        <option value="2">Catégorie 2</option>
-                        <option value="3">Catégorie 3</option>
-                    </Form.Select>
-                    </Form.Group>
                 </Card.Body>
                 <Form.Group>
                     <Form.Control id="entreeNote" placeholder="Votre note..." value={NoteEdit.affnote} onChange={e => {
