@@ -8,6 +8,8 @@ import '../style/App.css'
 export default function Statistiques(){
 
     let note = JSON.parse(localStorage.getItem('Piscine-Notes'))
+    let carnet = JSON.parse(localStorage.getItem('Piscine-Carnet'))
+    let categorie1 = JSON.parse(localStorage.getItem('Piscine-Catégorie-1'))
 
     return(
         <Container className='background'>
@@ -16,12 +18,13 @@ export default function Statistiques(){
 
             <Col className='col-app-1 my-auto col-9'>
                 <Card className='card-stat'>
-                    <Card.Body className='card-text'>Nombre de carnets de notes :</Card.Body>
+                    <Card.Body className='card-text'>Nombre de carnets de notes : {carnet.length}</Card.Body>
                 </Card>
 
-                <Card className='card-stat'>
+{/*             <Card className='card-stat'>
                     <Card.Body className='card-text'>Nombre de carnets de notes par catégorie :</Card.Body>
                 </Card>
+*/}
 
                 <Card className='card-stat'>
                     <Card.Body className='card-text'>Nombre de notes : {note.length}</Card.Body>

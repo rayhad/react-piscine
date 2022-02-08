@@ -2,7 +2,7 @@ import '../style/CreationNote.css';
 import '../style/App.css'
 import React from 'react';
 import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams, Link} from 'react-router-dom'
 import {Card, Button,Form, Col, Row, Container} from 'react-bootstrap'
 import { Converter } from 'showdown'
 

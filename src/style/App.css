@@ -3,6 +3,10 @@ main{
   height: 100vh;
 }
 
+body{
+  background-color: rgb(56, 56, 56);
+}
+
 .background{
   margin-top: 5%;
 }
@@ -17,7 +21,7 @@ main{
 .row-app h1{
   color: white;
   text-align: center;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 
 .col-app-2{

@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(56, 56, 56);
+}
+
 .ListContainer{
     background-color: blue;
     margin-left: auto;
